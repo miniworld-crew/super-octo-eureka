@@ -6,7 +6,7 @@ import sys
 
 def update(names):
     for name in names:
-        file = open(name + '.txt', 'r', errors='ignore')
+        file = open(name + '.txt', 'r', encoding='utf-8')
         a = file.read().split()
         file.close()
 
@@ -22,9 +22,12 @@ def update(names):
                     input('fnd')
                 # print(prev2,prev,i)
                 # i=i.lower()
-                i = i.strip('.,?!"\'').lower()
-                for k in 'â€™':
-                    i.replace(k,'')
+                for asdf in '.,?!â€œ™\'"':
+                    i=i.replace(asdf,'')
+                i=i.lower()
+                i = i.strip('.,?!\'"').lower()
+                for k in 'âœ€™\'"':
+                    i=i.replace(k,'')
                 if prev not in maps:
                     maps[prev] = defaultdict(int)
                 maps[prev][i] += 1
@@ -170,8 +173,8 @@ def main(FILENAMES, words, num, upd=False):
         x = update(FILENAMES)
     # print(x)
 
-    if word2 != '':
-        print(words, end=' ')
+    #if word2 != '':
+    print(words, end=' ')
     maps, maps2, maps3 = load(FILENAMES)
     # print('\n'*5)
     # print(1,list(maps3.keys())[5],1)
@@ -179,17 +182,19 @@ def main(FILENAMES, words, num, upd=False):
     for i in range(num):
         word = get_likely(maps, maps2, maps3, word1, word2)
         word2, word1 = word1, word
-        for i in 'â€™':
-            word1.replace(i,'')
-            word2.replace(i,'')
-        if 'â€' in word1:
-            word1.replace('â€','')
-        if 'â€' in word2:
-            word2.replace('â€','')
+        #print(word1,word2)
+        for k in '™?.œ,!"':
+            word1=word1.replace(k,'')
+            word2=word2.replace(k,'')
+        if 'â€œ' in word1:
+            word1=word1.replace('â€','')
+        if 'â€œ' in word2:
+            word2=word2.replace('â€','')
         print(word, end=' ')
     print()
 
 
 if __name__ == '__main__':
     #main(['./sources/wof_11','./sources/wof_12'],'it',100,True)
-    main(['./sources/wof_1','./sources/wof_2','./sources/wof_3','./sources/wof_4','./sources/wof_5','./sources/wof_6','./sources/wof_7','./sources/wof_8','./sources/wof_9','./sources/wof_10','./sources/wof_11','./sources/wof_12','./sources/wof_darkstalker'], 'it', 100, False)
+    #main(['./sources/wof_1','./sources/wof_2','./sources/wof_3','./sources/wof_4','./sources/wof_5','./sources/wof_6','./sources/wof_7','./sources/wof_8','./sources/wof_9','./sources/wof_10','./sources/wof_11','./sources/wof_12','./sources/wof_darkstalker'], 'the sky', 300, False)
+    main(['./sources/wof_1','./sources/wof_2','./sources/wof_3','./sources/wof_4','./sources/wof_5','./sources/wof_6','./sources/wof_7','./sources/wof_8','./sources/wof_9','./sources/wof_10'], 'the sky', 300, False)
