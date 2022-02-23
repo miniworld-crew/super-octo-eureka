@@ -1,6 +1,7 @@
 from collections import defaultdict
 import pickle
 import random
+import sys
 
 
 def update(names):
@@ -126,6 +127,7 @@ def get_likely(maps, maps2, maps3, word1, word2):
     a = intersect(maps[word1].keys(), maps2[word2].keys())
     if len(a) == 0:  # or True:
         print("CURRENTLY UNIMPLEMENTED")
+        sys.exit(0)
     else:
         # print(a)
         b = []
