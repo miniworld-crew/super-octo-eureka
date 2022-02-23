@@ -30,6 +30,9 @@ def update(names):
                 if (prev2,prev) not in maps3:
                     maps3[(prev2,prev)]=defaultdict(int)
                 maps3[(prev2,prev)][i]+=1
+                prev2=prev[:]
+                prev=i[:]
+                '''
                 if '.' in i or '!' in i or '?' in i:
                     prev2=prev[:]
                     prev=''
@@ -37,7 +40,7 @@ def update(names):
                     #print('before',prev2,prev,i)
                     prev2=prev[:]
                     prev=i[:]#.strip('.,?!"\'')
-                    #print('after',prev2,prev,i)
+                    #print('after',prev2,prev,i)'''
         dbfile=open(name+'_stats','wb')
         pickle.dump(maps,dbfile)
         dbfile.close()
@@ -194,4 +197,4 @@ def main(FILENAMES,words,num,upd=False):
     print()
 
 if __name__=='__main__':
-    main(['wof_5'],'he said',100,False)
+    main(['wof_5'],'what if',100,True)
