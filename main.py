@@ -23,6 +23,8 @@ def update(names):
                 # print(prev2,prev,i)
                 # i=i.lower()
                 i = i.strip('.,?!"\'').lower()
+                for k in 'â€™':
+                    i.replace(k,'')
                 if prev not in maps:
                     maps[prev] = defaultdict(int)
                 maps[prev][i] += 1
@@ -177,9 +179,16 @@ def main(FILENAMES, words, num, upd=False):
     for i in range(num):
         word = get_likely(maps, maps2, maps3, word1, word2)
         word2, word1 = word1, word
+        for i in 'â€™':
+            word1.replace(i,'')
+            word2.replace(i,'')
+        if 'â€' in word1:
+            word1.replace('â€','')
+        if 'â€' in word2:
+            word2.replace('â€','')
         print(word, end=' ')
     print()
 
 
 if __name__ == '__main__':
-    main(['./sources/wof_1','./sources/wof_2','./sources/wof_3','./sources/wof_4','./sources/wof_5','./sources/wof_6','./sources/wof_7','./sources/wof_8','./sources/wof_9','./sources/wof_10','./sources/wof_11','./sources/wof_12',], 'it', 100, False)
+    main(['./sources/wof_1','./sources/wof_2','./sources/wof_3','./sources/wof_4','./sources/wof_5','./sources/wof_6','./sources/wof_7','./sources/wof_8','./sources/wof_9','./sources/wof_10','./sources/wof_11','./sources/wof_12','./sources/wof_darkstalker','./sources/birmingham_letter_mlk','./sources/calibre_quickstart'], 'it', 100, True)
