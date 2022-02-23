@@ -174,4 +174,4 @@ def main(FILENAMES, words, num, upd=False):
 
 
 if __name__ == '__main__':
-    main(['wof_5'], 'he said', 100, False)
+    main(['wof_5','wof_12'], 'he said', 100, True)
