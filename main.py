@@ -191,5 +191,5 @@ def main(FILENAMES, words, num, upd=False):
 
 
 if __name__ == '__main__':
-    main(['./sources/wof_11','./sources/wof_12'],'it',100,True)
-    #main(['./sources/wof_1','./sources/wof_2','./sources/wof_3','./sources/wof_4','./sources/wof_5','./sources/wof_6','./sources/wof_7','./sources/wof_8','./sources/wof_9','./sources/wof_10','./sources/wof_11','./sources/wof_12','./sources/wof_darkstalker'], 'it', 100, True)
+    #main(['./sources/wof_11','./sources/wof_12'],'it',100,True)
+    main(['./sources/wof_1','./sources/wof_2','./sources/wof_3','./sources/wof_4','./sources/wof_5','./sources/wof_6','./sources/wof_7','./sources/wof_8','./sources/wof_9','./sources/wof_10','./sources/wof_11','./sources/wof_12','./sources/wof_darkstalker'], 'it', 100, False)
