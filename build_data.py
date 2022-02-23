@@ -16,7 +16,7 @@ files = os.listdir("./sources/")
 
 data = []
 for i in files:
-    with open(f"sources/{i}", 'r') as f:
+    with open(f"sources/{i}", 'r', errors='ignore') as f:
         data.extend(rem_banned(f.read().split()))
 
 keys = list(set(data))
