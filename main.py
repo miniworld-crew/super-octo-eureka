@@ -156,8 +156,14 @@ def get_likely(maps, maps2, maps3, word1, word2):
 
 
 def main(FILENAMES, words, num, upd=False):
-    word2 = words.split()[-2]
-    word1 = words.split()[-1]
+    if words=='':
+        word2,word1='',''
+    elif len(words.split())==1:
+        word2=''
+        word1=words
+    else:
+        word2 = words.split()[-2]
+        word1 = words.split()[-1]
     if upd:  # or True:
         x = update(FILENAMES)
     # print(x)
@@ -176,4 +182,4 @@ def main(FILENAMES, words, num, upd=False):
 
 
 if __name__ == '__main__':
-    main(['./sources/wof_1','./sources/wof_2','./sources/wof_3','./sources/wof_4','./sources/wof_5','./sources/wof_6','./sources/wof_7','./sources/wof_8','./sources/wof_9','./sources/wof_10','./sources/wof_11','./sources/wof_12',], 'he said', 100, True)
+    main(['./sources/wof_1','./sources/wof_2','./sources/wof_3','./sources/wof_4','./sources/wof_5','./sources/wof_6','./sources/wof_7','./sources/wof_8','./sources/wof_9','./sources/wof_10','./sources/wof_11','./sources/wof_12',], 'it', 100, False)
