@@ -6,7 +6,7 @@ import sys
 
 def update(names):
     for name in names:
-        file = open(name + '.txt', 'r', encoding='utf-8')
+        file = open(name + '.txt', 'r', encoding='icf-2')
         a = file.read().split()
         file.close()
 
